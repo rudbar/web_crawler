@@ -26,7 +26,6 @@ body {
 }
 
 .mainSection .searchContainer {
-	margin-top: 20px;
     width: 100%;
 }
 
@@ -41,12 +40,13 @@ body {
     background-color: #ffdb4d;
     border: none;
     height: 36px;
-    width: 125px;
+    width: 88px;
     border-radius: 1px;
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 20px;
     cursor: pointer;
     outline: none;
+    line-height: 36px;
 }
 
 .mainSection .searchContainer .searchBox {
@@ -63,10 +63,38 @@ body {
     color: #000;
 }
 
+.mainSection .logoContainer {
+	width: 320px;
+	text-align: center;
+}
 
+.logoContainer img {
+	width: 100%;
+}
 
+.header {
+	background-color: #fff;
+	border-bottom: 1px solid #E5E5E5;
+}
 
+.wrapper .headerContent {
+	display: flex;
+	align-items: center;
+}
 
+.headerContent .logoContainer {
+	width: 150px;
+	padding: 5px 20px;
+	box-sizing: border-box;
+}
+
+.headerContent .searchContainer {
+	flex: 1;
+}
+
+.headerContent .searchContainer form {
+	margin: 15px 0 28px 0;
+}
 
 
 

@@ -14,7 +14,7 @@
 			
 
 			<div class="logoContainer">
-				<img src="https://i.pinimg.com/originals/a9/9b/50/a99b50f3834b602dc10e5321b12d5e58.png">
+				<img src="assets/images/yantanyaxLogo.png">
 			</div>
 
 			<div class="searchContainer">
