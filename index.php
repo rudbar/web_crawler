@@ -2,6 +2,10 @@
 <html>
 <head>
 	<title>Pisyun</title>
+	 <meta name="description" content="Поисковая система">
+	 <meta name="keywords" content="Поисковая система, янтанякс, картинки">
+	 <meta name="author" content="Yan Kachan">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 

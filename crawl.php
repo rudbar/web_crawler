@@ -1,8 +1,23 @@
 <?php
+include("config.php");
 include("classes/DomDocumentParser.php");
 
 $alreadyCrawled = array();
 $crawling = array();
+
+function insertLink($url, $title, $description, $keywords) {
+	global $con;
+
+	$query = $con->prepare("INSERT INTO sites(url, title, description, keywords)
+							VALUES(:url, :title, :description, :keywords)");
+
+	$query->bindParam(":url", $url);
+	$query->bindParam(":title", $title);
+	$query->bindParam(":description", $description);
+	$query->bindParam(":keywords", $keywords);
+
+	return $query->execute();
+}
 
 function createLink($src, $url) {
 
@@ -27,7 +42,49 @@ function createLink($src, $url) {
 
 	return $src;
 
-}	
+}
+
+function getDetails($url) {
+
+	$parser = new DomDocumentParser($url);
+
+	$titleArray = $parser->getTitleTags();
+
+	if(sizeof($titleArray) == 0 || $titleArray->item(0) == NULL) {
+		return;
+	}
+
+	$title = $titleArray->item(0)->nodeValue;
+	$title = str_replace("\n", "", $title);
+
+	if($title == "") {
+		return;
+	}
+
+	$description = "";
+	$keywords = "";
+
+	$metasArray = $parser->getMetaTags();
+
+	foreach($metasArray as $meta) {
+
+		if($meta->getAttribute("name") == "description") {
+			$description = $meta->getAttribute("content");
+		}
+
+		if($meta->getAttribute("name") == "keywords") {
+			$keywords = $meta->getAttribute("content");
+		}
+	}
+
+	$description = str_replace("\n", "", $description);
+	$keywords = str_replace("\n", "", $keywords);
+
+
+	insertLink($url, $title, $description, $keywords);
+
+
+}
 
 function followLinks($url) {
 
@@ -56,11 +113,11 @@ function followLinks($url) {
 			$alreadyCrawled[] = $href;
 			$crawling[] = $href;
 
-			// Insert $href
+			getDetails($href);
 		}
+		else return;
 
 
-		echo $href . "<br>";
 	}
 
 	array_shift($crawling);
