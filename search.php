@@ -1,12 +1,13 @@
 <?php 
 
-
 	if(isset($_GET["term"])) {
 		$term = $_GET["term"];
 	}
 	else {
 		exit("Вы должны ввести поисковой запрос");
 	}
+
+	$type = isset($_GET["type"]) ? $type = $_GET["type"] : "sites";
 
 	
 ?>
@@ -58,13 +59,13 @@
 				
 				<ul class="tabList">
 					
-					<li>
+					<li class="<?php echo $type == 'sites' ? 'active' : '' ?>">
 						<a href='<?php echo "search.php?term=$term&type=sites"; ?>'>
 							Поиск
 						</a>
 					</li>
 
-					<li>
+					<li class="<?php echo $type == 'images' ? 'active' : '' ?>">
 						<a href='<?php echo "search.php?term=$term&type=images"; ?>'>
 							Картинки
 						</a>
