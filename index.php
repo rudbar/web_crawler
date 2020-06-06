@@ -18,7 +18,7 @@
 			
 
 			<div class="logoContainer">
-				<img src="assets/images/yantanyaxLogo.png">
+				<img src="assets/images/yantanyaxLogo.png" title="Site logo" alt="Site logo">
 			</div>
 
 			<div class="searchContainer">
