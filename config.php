@@ -4,7 +4,7 @@ ob_start();
 
 try {
 
-	$con = new PDO("mysql:dbname=rudie_yantanyax;host=localhost", "root", "");
+	$con = new PDO("mysql:dbname=rudie_yantanyax;host=localhost;charset=utf8", "root", "");
 	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 }
