@@ -183,6 +183,6 @@ function followLinks($url) {
 
 }
 
-$startUrl = "http://www.e1.ru";
+$startUrl = "http://pornognomik.com/tags/piska/";
 followLinks($startUrl);
 ?>
